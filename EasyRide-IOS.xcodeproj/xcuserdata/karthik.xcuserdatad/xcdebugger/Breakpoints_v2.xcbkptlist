@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "CF258B94-E780-4803-A1BF-CFAE611C0117"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3B148F1-0914-404C-8E73-B5F0F3E02B5B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getContries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E3B148F1-0914-404C-8E73-B5F0F3E02B5B - fdd85390455323bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyRide_IOS.NetWorkManager.getContries() -&gt; Combine.AnyPublisher&lt;Foundation.Data, Foundation.URLError&gt;"
+                  moduleName = "EasyRide-IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karthik/Documents/EasyRide-IOS/EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "924">
+               </Location>
+               <Location
+                  uuid = "E3B148F1-0914-404C-8E73-B5F0F3E02B5B - fdd85390455323bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyRide_IOS.NetWorkManager.getContries() -&gt; Combine.AnyPublisher&lt;Foundation.Data, Foundation.URLError&gt;"
+                  moduleName = "EasyRide-IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karthik/Documents/EasyRide-IOS/EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "916">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83A3B601-791F-4CB0-9B0F-F38BD72A2E62"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getContries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83A3B601-791F-4CB0-9B0F-F38BD72A2E62 - fdd85390455323fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyRide_IOS.NetWorkManager.getContries() -&gt; Combine.AnyPublisher&lt;Foundation.Data, Foundation.URLError&gt;"
+                  moduleName = "EasyRide-IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karthik/Documents/EasyRide-IOS/EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "83A3B601-791F-4CB0-9B0F-F38BD72A2E62 - 2129635849088c17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) -&gt; Foundation.Data in EasyRide_IOS.NetWorkManager.getContries() -&gt; Combine.AnyPublisher&lt;Foundation.Data, Foundation.URLError&gt;"
+                  moduleName = "EasyRide-IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karthik/Documents/EasyRide-IOS/EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "83A3B601-791F-4CB0-9B0F-F38BD72A2E62 - fdd85390455323fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EasyRide_IOS.NetWorkManager.getContries() -&gt; Combine.AnyPublisher&lt;Foundation.Data, Foundation.URLError&gt;"
+                  moduleName = "EasyRide-IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karthik/Documents/EasyRide-IOS/EasyRide-IOS/NetWorkLayer/NetWorkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "512">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD674F69-832A-4304-9977-8E3CEC1801F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EasyRide-IOS/ViewModels/AuthenticationModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getCountries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
