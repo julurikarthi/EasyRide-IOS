@@ -17,7 +17,7 @@ struct SplaceScreen: View {
                     isNextViewActive = true
                 }
             }.navigationDestination(isPresented: $isNextViewActive) {
-                LoginOrSignUpView()
+                SignUpView()
             }.onAppear(perform: {
                 
             }).frame(maxWidth: .infinity,maxHeight: .infinity).background(Color(hex: AppColors.backGroundColor.rawValue)).edgesIgnoringSafeArea(.all)

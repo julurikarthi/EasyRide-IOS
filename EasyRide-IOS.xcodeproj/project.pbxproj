@@ -22,7 +22,8 @@
 		25DFB44A2BBDFDB0006CBB42 /* EasyRide_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4492BBDFDB0006CBB42 /* EasyRide_IOSTests.swift */; };
 		25DFB4542BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4532BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift */; };
 		25DFB4562BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4552BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift */; };
-		25DFB4642BBDFFF7006CBB42 /* LoginOrSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4632BBDFFF7006CBB42 /* LoginOrSignUpView.swift */; };
+		25DFB4642BBDFFF7006CBB42 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4632BBDFFF7006CBB42 /* SignUpView.swift */; };
+		25ED29A32BF694AA005A9659 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ED29A22BF694AA005A9659 /* DocumentsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,9 @@
 		25DFB44F2BBDFDB0006CBB42 /* EasyRide-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyRide-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DFB4532BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRide_IOSUITests.swift; sourceTree = "<group>"; };
 		25DFB4552BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRide_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		25DFB4632BBDFFF7006CBB42 /* LoginOrSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrSignUpView.swift; sourceTree = "<group>"; };
+		25DFB4632BBDFFF7006CBB42 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		25ED29A22BF694AA005A9659 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
+		25ED29A42BFAD83D005A9659 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 		25DFB4372BBDFDAF006CBB42 /* EasyRide-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				25ED29A42BFAD83D005A9659 /* Info.plist */,
 				253F248E2BD00E4600754264 /* Constants */,
 				250D881E2BBE113E0099BF87 /* ViewModels */,
 				250D881B2BBE0C7D0099BF87 /* NetWorkLayer */,
@@ -178,10 +182,11 @@
 		25DFB4622BBDFFE0006CBB42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				25DFB4632BBDFFF7006CBB42 /* LoginOrSignUpView.swift */,
+				25DFB4632BBDFFF7006CBB42 /* SignUpView.swift */,
 				253F24952BE2A52600754264 /* CountiresCodeView.swift */,
 				253F24972BEBB03400754264 /* TestViewSwiftUI.swift */,
 				253F24992BEBBC3600754264 /* LoginView.swift */,
+				25ED29A22BF694AA005A9659 /* DocumentsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,8 +324,9 @@
 				250D881D2BBE0C960099BF87 /* NetWorkManager.swift in Sources */,
 				250D88202BBE11870099BF87 /* AuthenticationModel.swift in Sources */,
 				253F24982BEBB03400754264 /* TestViewSwiftUI.swift in Sources */,
+				25ED29A32BF694AA005A9659 /* DocumentsView.swift in Sources */,
 				253F24922BD02D5E00754264 /* AppState.swift in Sources */,
-				25DFB4642BBDFFF7006CBB42 /* LoginOrSignUpView.swift in Sources */,
+				25DFB4642BBDFFF7006CBB42 /* SignUpView.swift in Sources */,
 				25DFB43B2BBDFDAF006CBB42 /* SplaceScreen.swift in Sources */,
 				25DFB4392BBDFDAF006CBB42 /* EasyRide_IOSApp.swift in Sources */,
 				253F24942BDC01BF00754264 /* EndPoints.swift in Sources */,
@@ -492,6 +498,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRide-IOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EasyRide-IOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,6 +527,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"EasyRide-IOS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EasyRide-IOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

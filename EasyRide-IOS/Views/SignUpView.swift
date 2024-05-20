@@ -8,9 +8,10 @@
 import SwiftUI
 import Combine
 
-struct LoginOrSignUpView: View {
+struct SignUpView: View {
     @State private var movetoselectContrycode = false
     @State private var movetoLogin = false
+    @State private var movetoDocumentsubmitview = false
 
     @EnvironmentObject var appstate: AppState
     let viewModel = AuthenticationModel()
@@ -71,7 +72,7 @@ struct LoginOrSignUpView: View {
                             HStack {
                                 ZStack {
                                     HStack {
-                                        Text(selectedCountry?.dialCode ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
+                                        Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
                                         Image("downarrow").resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .frame(width: 15, height: 10)
@@ -94,20 +95,31 @@ struct LoginOrSignUpView: View {
                             }
                         }
                         
+                      
                         Button(action: {
-                            
+                            // Action for the button
+                            movetoDocumentsubmitview = true
                         }) {
-                            Text("SignUp")
+                            VStack {
+                                Text("Continue with Phone")
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: 45)
+                            .background(Color(hex: "#545174") ?? .gray) // Use .background instead of .backgroundColor
+                            .cornerRadius(10) // Apply corner radius here
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         }
-                        .accentColor(Color.white).padding(EdgeInsets(top: 5, leading: 0, bottom: 2, trailing: 0))
-                        
+                        .accentColor(Color.white)
+                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 2, trailing: 0))
+
                         Button(action: {
                             // Button action goes here
                             self.movetoLogin = true
                         }) {
-                            Text("Login")
-                                .underline()
-                                .font(.system(size: 10)).foregroundColor(.white)
+                            VStack {
+                                Text("LOGIN")
+                                    .underline()
+                                    .font(.system(size: 12)).foregroundColor(.white)
+                            }.padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
                         }
                         
                     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top).onAppear(perform: {
@@ -117,6 +129,8 @@ struct LoginOrSignUpView: View {
                     CountiresCodeView(selectedCountry: $selectedCountry, countries: viewModel.countries)
                 }.navigationDestination(isPresented: $movetoLogin) {
                     LoginView()
+                }.navigationDestination(isPresented: $movetoDocumentsubmitview) {
+                    DocumentsView()
                 }
         }).navigationBarBackButtonHidden(true)
         
@@ -126,6 +140,6 @@ struct LoginOrSignUpView: View {
 }
 
 #Preview {
-    LoginOrSignUpView()
+    SignUpView()
                 .previewDisplayName("Empty Fields")
 }

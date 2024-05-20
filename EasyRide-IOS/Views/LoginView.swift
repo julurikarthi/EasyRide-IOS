@@ -31,7 +31,7 @@ struct LoginView: View {
                 HStack {
                     ZStack {
                         HStack {
-                            Text(selectedCountry?.dialCode ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
+                            Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
                             Image("downarrow").resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 15, height: 10)
@@ -53,11 +53,26 @@ struct LoginView: View {
                         .colorScheme(.dark)
                 }
             }
+            loginBtn
         }.frame(maxWidth: .infinity, maxHeight: .infinity,
                 alignment: .top).backgroundColor(Color(hex: AppColors.backGroundColor.rawValue) ?? .black).onAppear(perform: {
-            viewModel.getCountries()
+           
         }).navigationDestination(isPresented: $movetoselectContrycode) {
             CountiresCodeView(selectedCountry: $selectedCountry, countries: viewModel.countries)
+        }.task {
+            viewModel.getCountries()
+        }
+    }
+    
+    /// Login Action
+    var loginBtn: some View {
+        Button(action: {
+            let phoneNumer = (selectedCountry?.dial_code ?? "") + phoneNumber
+            viewModel.loginUser(phoneNumber: phoneNumer)
+        }) {
+            Text("Login").foregroundColor(.white)
+        }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)).task {
+            
         }
     }
 }

@@ -12,22 +12,20 @@ import Combine
     var datavalues: [String: Any]?
     var cancellables = Set<AnyCancellable>()
     var countries = [Country]()
-    func loginUser(phoneNumber: String,
-                   publisher: CurrentValueSubject<[String: Any], Never>) {
-        NetWorkManager.instance.postRequest().sink { error in
+    func loginUser(phoneNumber: String) {
+        NetWorkManager.instance.postRequest(serverMethod: .singintapido,
+                                                          parameters: ["phoneNumber": phoneNumber]).sink { error in
             print(error)
         } receiveValue: { data in
             do {
                 if let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     print(dictionary)
-                    publisher.value = dictionary
                     self.datavalues = dictionary
                 }
             } catch _ {
                 
             }
         }.store(in: &cancellables)
-
     }
     
     func getCountries() {
@@ -53,7 +51,7 @@ import Combine
 
 struct Country: Decodable {
     let name: String?
-    let dialCode: String?
+    let dial_code: String?
     let emoji: String?
     let code: String?
 }
