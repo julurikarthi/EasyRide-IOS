@@ -187,18 +187,6 @@ struct SignUpView: View {
         }
         return false
     }
-    
-//    func getMyLocaleCountry() -> Country {
-//        let regionCode = Locale.current.region?.identifier
-//        print("my current region \(regionCode ?? "US")") // "US"
-//        let myCountry = viewModel.countries.first(where: { info in
-//                info.code == regionCode
-//            })
-//        print("my current region \(myCountry?.code ?? "US")")
-//        //{"name":"India","dial_code":"+91","emoji":"\ud83c\uddee\ud83c\uddf3","code":"IN"},
-//        //{"name":"United States","dial_code":"+1","emoji":"\ud83c\uddfa\ud83c\uddf8","code":"US"},
-//        return myCountry ?? Country(name: "United States", dial_code: "+1", emoji: #"\ud83c\uddfa\ud83c\uddf8"#, code: "US")
-//    }
 
 }
 

@@ -76,34 +76,6 @@ struct LoginView: View {
                         }
                 }
                 
-//                HStack {
-//                    ZStack {
-//                        HStack {
-//                            Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
-//                            Image("downarrow").resizable()
-//                                .aspectRatio(contentMode: .fill)
-//                                .frame(width: 15, height: 10)
-//                        }.frame(width: 50, height: 50).onTapGesture {
-//                            self.movetoselectContrycode = true
-//                        }
-//                    }.frame(maxWidth: 50, maxHeight: 50).padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
-//
-//                    VStack {
-//
-//                    }.frame(maxWidth: 1, maxHeight: 20).background(Color.gray)
-//
-//                    TextField("Enter Phone Number", text: $phoneNumber)
-//                        .background(Color.clear)
-//                        .foregroundColor(.white)
-//                        .frame(maxWidth: .infinity, maxHeight: 50)
-//                        .padding([.leading, .trailing], 0)
-//                        .accentColor(.white).padding(.leading, 5)
-//                        .colorScheme(.dark)
-//                        .keyboardType(.numberPad)
-//                        .onChange(of: phoneNumber) {
-//                            phoneNumber = phoneNumber.formatPhoneNumber()
-//                        }
-//                }
             }
             loginBtn
         }.frame(maxWidth: .infinity, maxHeight: .infinity,

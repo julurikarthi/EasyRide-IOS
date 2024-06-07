@@ -31,31 +31,7 @@ import Combine
     }
     
     func getCountries() {
-        
-//        self.countries.removeAll()
-//        let c1 = Country(name: "Aland Islands", dial_code: "+358", emoji: #"\ud83c\udde6\ud83c\uddfd"#, code: "AX")
-//        let c2 = Country(name: "Albania", dial_code: "+355", emoji: #"\ud83c\udde6\ud83c\uddf1"#, code: "AL")
-//        let c3 = Country(name: "Algeria", dial_code: "+213", emoji: #"\ud83c\udde9\ud83c\uddff"#, code: "DZ")
-//        let c4 = Country(name: "AmericanSamoa", dial_code: "+1684", emoji: #"\ud83c\udde6\ud83c\uddf8"#, code: "AS")
-//        let c5 = Country(name: "Andorra", dial_code: "+376", emoji: #"\ud83c\udde6\ud83c\udde9"#, code: "AD")
-//        let c6 = Country(name: "Angola", dial_code: "+244", emoji: #"\ud83c\udde6\ud83c\uddf4"#, code: "AO")
-//        let c7 = Country(name: "Anguilla", dial_code: "+1264", emoji: #"\ud83c\udde6\ud83c\uddee"#, code: "AI")
-//        let c8 = Country(name: "Antarctica", dial_code: "+672", emoji: #"\ud83c\udde6\ud83c\uddf6"#, code: "AQ")
-//        let c9 = Country(name: "Antigua and Barbuda", dial_code: "+1268", emoji: #"\ud83c\udde6\ud83c\uddec"#, code: "AG")
-//        let c10 = Country(name: "India", dial_code: "+91", emoji: #"\ud83c\uddee\ud83c\uddf3"#, code: "IN")
-//
-//        self.countries.append(c1)
-//        self.countries.append(c2)
-//        self.countries.append(c3)
-//        self.countries.append(c4)
-//        self.countries.append(c5)
-//        self.countries.append(c6)
-//        self.countries.append(c7)
-//        self.countries.append(c8)
-//        self.countries.append(c9)
-//        self.countries.append(c10)
-//        localeCountry = getMyLocaleCountry()
-        
+    
         NetWorkManager.instance.getContries().sink { error in
             switch error {
             case .failure(let error):
