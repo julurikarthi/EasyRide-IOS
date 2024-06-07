@@ -1,0 +1,7 @@
+*.xcuserdata/
+
+# Ignore Xcode workspace settings
+*.xcworkspace/
+
+# Ignore derived data
+DerivedData/
