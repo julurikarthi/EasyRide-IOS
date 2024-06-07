@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Foundation
 
 struct SignUpView: View {
     @State private var movetoselectContrycode = false
@@ -20,6 +21,7 @@ struct SignUpView: View {
     @State var lastName: String = ""
     @State var phoneNumber: String = ""
     @State var selectedCountry: Country?
+    @State private var hasAppeared: Bool = false
 
     var body: some View {
         NavigationView(content: {
@@ -38,13 +40,21 @@ struct SignUpView: View {
                                     .frame(maxWidth: .infinity, maxHeight: 50)
                                     .padding([.leading, .trailing], 20)
                                 
-                                TextField("Enter First Name", text: $firstName)
+                                TextField("Enter First Name*", text: $firstName)
                                     .background(Color.clear)
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, maxHeight: 50)
                                     .padding([.leading, .trailing], 20)
                                     .accentColor(.white).padding(.leading, 20)
                                     .colorScheme(.dark)
+                                    .onChange(of: firstName) {
+                                        let newText = firstName.filter{ character  in
+                                            character.isLetter || character == " " || character.isWhitespace
+                                        }
+                                        if newText != firstName {
+                                            firstName = newText
+                                        }
+                                    }
                             }
 
                             
@@ -54,13 +64,21 @@ struct SignUpView: View {
                                     .frame(maxWidth: .infinity, maxHeight: 50)
                                     .padding([.leading, .trailing], 20)
                                 
-                                TextField("Enter Last Name", text: $lastName)
+                                TextField("Enter Last Name*", text: $lastName)
                                     .background(Color.clear)
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, maxHeight: 50)
                                     .padding([.leading, .trailing], 20)
                                     .accentColor(.white).padding(.leading, 20)
                                     .colorScheme(.dark)
+                                    .onChange(of: lastName) {
+                                        let newText = lastName.filter{ character  in
+                                            character.isLetter || character == " " || character.isWhitespace
+                                        }
+                                        if newText != lastName {
+                                            lastName = newText
+                                        }
+                                    }
                             }
                         }
                         ZStack {
@@ -72,39 +90,63 @@ struct SignUpView: View {
                             HStack {
                                 ZStack {
                                     HStack {
-                                        Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
-                                        Image("downarrow").resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .frame(width: 15, height: 10)
-                                    }.frame(width: 50, height: 50).onTapGesture {
+                                        Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")")
+                                            .foregroundColor(.white).font(.system(size: 10))
+                                            .onAppear{
+                                                if !hasAppeared {
+                                                    viewModel.getCountries()
+                                                    selectedCountry = viewModel.localeCountry
+                                                    hasAppeared = true
+                                                }
+                                                if selectedCountry?.dial_code == "+91" {
+                                                    phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
+                                                } else {
+                                                    phoneNumber = phoneNumber.formatPhoneNumber(with: "(XXX) XXX-XXXX")
+                                                }
+                                            }
+                                        Text(selectedCountry?.emoji?.decodedUnicode ?? #"\ud83c\uddfa\ud83c\uddf8"#.decodedUnicode)
+                                        
+                                    }
+                                    .onTapGesture {
                                         self.movetoselectContrycode = true
                                     }
-                                }.frame(maxWidth: 50, maxHeight: 50).padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                                }.frame(maxWidth: 80, maxHeight: 50).padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                                
                                 
                                 VStack {
-                                    
+                                    //Vertical line
                                 }.frame(maxWidth: 1, maxHeight: 20).background(Color.gray)
                                 
-                                TextField("Enter Phone Number", text: $phoneNumber)
+                                TextField("Enter Phone Number*", text: $phoneNumber)
                                     .background(Color.clear)
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity, maxHeight: 50)
                                     .padding([.leading, .trailing], 0)
                                     .accentColor(.white).padding(.leading, 5)
                                     .colorScheme(.dark)
+                                    .keyboardType(.numberPad)
+                                    .onChange(of: phoneNumber) {
+                                        if selectedCountry?.dial_code == "+91" {
+                                            phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
+                                        } else {
+                                            phoneNumber = phoneNumber.formatPhoneNumber(with: "(XXX) XXX-XXXX")
+                                        }
+                                        
+                                    }
                             }
                         }
                         
                       
                         Button(action: {
                             // Action for the button
-                            movetoDocumentsubmitview = true
+                            movetoDocumentsubmitview = allFieldsFilled()
                         }) {
                             VStack {
                                 Text("Continue with Phone")
                             }
+                            .disabled(allFieldsFilled() == true ? false : true)
                             .frame(maxWidth: .infinity, maxHeight: 45)
-                            .background(Color(hex: "#545174") ?? .gray) // Use .background instead of .backgroundColor
+                            .background(Color(hex: allFieldsFilled() == true ? "#545174" : "#5a5a5e" )) //
                             .cornerRadius(10) // Apply corner radius here
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         }
@@ -113,7 +155,7 @@ struct SignUpView: View {
 
                         Button(action: {
                             // Button action goes here
-                            self.movetoLogin = true
+                            movetoLogin = true
                         }) {
                             VStack {
                                 Text("LOGIN")
@@ -122,9 +164,7 @@ struct SignUpView: View {
                             }.padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
                         }
                         
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top).onAppear(perform: {
-                        viewModel.getCountries()
-                    })
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity).backgroundColor(Color(hex: AppColors.backGroundColor.rawValue) ?? .black).navigationDestination(isPresented: $movetoselectContrycode) {
                     CountiresCodeView(selectedCountry: $selectedCountry, countries: viewModel.countries)
                 }.navigationDestination(isPresented: $movetoLogin) {
@@ -133,8 +173,19 @@ struct SignUpView: View {
                     OnBoardingView()
                 }
         }).navigationBarBackButtonHidden(true)
-        
-       
+    }
+    
+    func allFieldsFilled() -> Bool {
+        if selectedCountry?.code == "IN" {
+            if firstName.count > 0 && lastName.count > 0 && phoneNumber.isValidIndiaPhoneNumber() {
+                return true
+            }
+        } else {
+            if firstName.count > 0 && lastName.count > 0 && phoneNumber.isValidPhoneNumber() {
+                return true
+            }
+        }
+        return false
     }
 
 }
@@ -143,3 +194,4 @@ struct SignUpView: View {
     SignUpView()
                 .previewDisplayName("Empty Fields")
 }
+
