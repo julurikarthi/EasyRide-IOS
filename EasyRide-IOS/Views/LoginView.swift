@@ -34,11 +34,6 @@ struct LoginView: View {
                             Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")")
                                 .foregroundColor(.white).font(.system(size: 10))
                                 .onAppear{
-                                    if !hasAppeared {
-                                        viewModel.getCountries()
-                                        selectedCountry = viewModel.localeCountry
-                                        hasAppeared = true
-                                    }
                                     if selectedCountry?.dial_code == "+91" {
                                         phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
                                     } else {
@@ -84,15 +79,16 @@ struct LoginView: View {
         }).navigationDestination(isPresented: $movetoselectContrycode) {
             CountiresCodeView(selectedCountry: $selectedCountry, countries: viewModel.countries)
         }.task {
-            viewModel.getCountries()
+            await viewModel.getCountries()
+            selectedCountry = viewModel.localeCountry
         }
     }
     
     /// Login Action
     var loginBtn: some View {
         Button(action: {
-            let phoneNumer = (selectedCountry?.dial_code ?? "") + phoneNumber
-            viewModel.loginUser(phoneNumber: phoneNumer)
+            var phoneNumer = (selectedCountry?.dial_code ?? "") + phoneNumber
+            viewModel.loginUser(phoneNumber: &phoneNumer)
         }) {
             Text("Login").foregroundColor(.white)
         }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)).task {

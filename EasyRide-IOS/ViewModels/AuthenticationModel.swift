@@ -14,7 +14,9 @@ import Combine
     var countries = [Country]()
     var localeCountry: Country?
     
-    func loginUser(phoneNumber: String) {
+    func loginUser(phoneNumber: inout String) {
+        let charactersToRemove: Set<Character> = ["(", ")", " ", "-"]
+        phoneNumber = String(phoneNumber.filter { !charactersToRemove.contains($0) })
         NetWorkManager.instance.postRequest(serverMethod: .singintapido,
                                                           parameters: ["phoneNumber": phoneNumber]).sink { error in
             print(error)
@@ -30,27 +32,21 @@ import Combine
         }.store(in: &cancellables)
     }
     
-    func getCountries() {
-    
-        NetWorkManager.instance.getContries().sink { error in
-            switch error {
-            case .failure(let error):
-                print(error.localizedDescription)
-               
-            case .finished:
-                print("fined")
-                
+    func getCountries() async {
+        do {
+            let data = try await NetWorkManager.instance.getContries()
+            let decoder = JSONDecoder()
+            DispatchQueue.main.async {
+                do {
+                    self.countries = try decoder.decode([Country].self, from: data)
+                    self.localeCountry = self.getMyLocaleCountry()
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
-        } receiveValue: { data in
-            do {
-                let decoder = JSONDecoder()
-                self.countries = try decoder.decode([Country].self, from: data)
-                self.localeCountry = self.getMyLocaleCountry()
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.store(in: &cancellables)
-         
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func getMyLocaleCountry() -> Country {

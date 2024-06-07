@@ -93,11 +93,7 @@ struct SignUpView: View {
                                         Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")")
                                             .foregroundColor(.white).font(.system(size: 10))
                                             .onAppear{
-                                                if !hasAppeared {
-                                                    viewModel.getCountries()
-                                                    selectedCountry = viewModel.localeCountry
-                                                    hasAppeared = true
-                                                }
+                                              
                                                 if selectedCountry?.dial_code == "+91" {
                                                     phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
                                                 } else {
@@ -171,6 +167,9 @@ struct SignUpView: View {
                     LoginView()
                 }.navigationDestination(isPresented: $movetoDocumentsubmitview) {
                     OnBoardingView()
+                }.task {
+                    await viewModel.getCountries()
+                    selectedCountry = viewModel.localeCountry
                 }
         }).navigationBarBackButtonHidden(true)
     }

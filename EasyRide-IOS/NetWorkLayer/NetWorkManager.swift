@@ -48,13 +48,11 @@ class NetWorkManager {
         return fetchData(with: request)
     }
     
-    func getContries() -> AnyPublisher<Data, URLError> {
-        guard let url = URL(string: EndPoints.countries.rawValue) else {
-            fatalError("Invalid URL")
-        }
-        return session.dataTaskPublisher(for: url).map { $0.data }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-        
-    }
+    func getContries() async throws -> Data {
+          guard let url = URL(string: EndPoints.countries.rawValue) else {
+              fatalError("Invalid URL")
+          }
+          let (data, _) = try await session.data(from: url)
+          return data
+      }
 }
