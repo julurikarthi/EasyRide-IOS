@@ -8,9 +8,9 @@
 import UIKit
 
 enum EndPoints: String {
-    case countries = "http://127.0.0.1/mac/countries.json"
-    case baseUrl = "http://18.117.81.223/NewEndPoint.php"
-    case getCarsModels = "http://18.117.81.223/NewEndPoint.php?action=getCarsModels"
+    case countries = "http://3.22.224.37/countries.json"
+    case baseUrl = "http://3.22.224.37/NewEndPoint.php"
+    case getCarsModels = "http://3.22.224.37/NewEndPoint.php?action=getCarsModels"
 }
 
 enum HTTPMethod: String {
