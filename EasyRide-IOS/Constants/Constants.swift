@@ -13,6 +13,11 @@ enum AppColors: String {
     case backGroundColor = "#252D37"
 }
 
+extension Color {
+    static let backGroundColor = Color(hex: "#252D37")!
+    static let tileBGcolor = Color(hex: "#272731")!
+}
+
 extension UIColor {
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)

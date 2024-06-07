@@ -130,7 +130,7 @@ struct SignUpView: View {
                 }.navigationDestination(isPresented: $movetoLogin) {
                     LoginView()
                 }.navigationDestination(isPresented: $movetoDocumentsubmitview) {
-                    DocumentsView()
+                    OnBoardingView()
                 }
         }).navigationBarBackButtonHidden(true)
         

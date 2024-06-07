@@ -23,7 +23,7 @@
 		25DFB4542BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4532BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift */; };
 		25DFB4562BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4552BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift */; };
 		25DFB4642BBDFFF7006CBB42 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DFB4632BBDFFF7006CBB42 /* SignUpView.swift */; };
-		25ED29A32BF694AA005A9659 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ED29A22BF694AA005A9659 /* DocumentsView.swift */; };
+		25ED29A32BF694AA005A9659 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ED29A22BF694AA005A9659 /* OnBoardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		25DFB4532BBDFDB0006CBB42 /* EasyRide_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRide_IOSUITests.swift; sourceTree = "<group>"; };
 		25DFB4552BBDFDB0006CBB42 /* EasyRide_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRide_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25DFB4632BBDFFF7006CBB42 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		25ED29A22BF694AA005A9659 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
+		25ED29A22BF694AA005A9659 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		25ED29A42BFAD83D005A9659 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +186,7 @@
 				253F24952BE2A52600754264 /* CountiresCodeView.swift */,
 				253F24972BEBB03400754264 /* TestViewSwiftUI.swift */,
 				253F24992BEBBC3600754264 /* LoginView.swift */,
-				25ED29A22BF694AA005A9659 /* DocumentsView.swift */,
+				25ED29A22BF694AA005A9659 /* OnBoardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				250D881D2BBE0C960099BF87 /* NetWorkManager.swift in Sources */,
 				250D88202BBE11870099BF87 /* AuthenticationModel.swift in Sources */,
 				253F24982BEBB03400754264 /* TestViewSwiftUI.swift in Sources */,
-				25ED29A32BF694AA005A9659 /* DocumentsView.swift in Sources */,
+				25ED29A32BF694AA005A9659 /* OnBoardingView.swift in Sources */,
 				253F24922BD02D5E00754264 /* AppState.swift in Sources */,
 				25DFB4642BBDFFF7006CBB42 /* SignUpView.swift in Sources */,
 				25DFB43B2BBDFDAF006CBB42 /* SplaceScreen.swift in Sources */,
