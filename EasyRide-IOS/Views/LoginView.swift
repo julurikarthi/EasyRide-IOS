@@ -14,6 +14,7 @@ struct LoginView: View {
 
     @State var selectedCountry: Country?
     @State var phoneNumber: String = ""
+    @State private var hasAppeared: Bool = false
     var body: some View {
         VStack {
             VStack {
@@ -27,31 +28,54 @@ struct LoginView: View {
                     .stroke(Color.gray, lineWidth: 1)
                     .frame(maxWidth: .infinity, maxHeight: 50)
                     .padding([.leading, .trailing], 20)
-                
                 HStack {
                     ZStack {
                         HStack {
-                            Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")").foregroundColor(.white).font(.system(size: 10))
-                            Image("downarrow").resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 15, height: 10)
-                        }.frame(width: 50, height: 50).onTapGesture {
+                            Text(selectedCountry?.dial_code ?? "+1" + "\(selectedCountry?.emoji ?? "")")
+                                .foregroundColor(.white).font(.system(size: 10))
+                                .onAppear{
+                                    if !hasAppeared {
+                                        viewModel.getCountries()
+                                        selectedCountry = viewModel.localeCountry
+                                        hasAppeared = true
+                                    }
+                                    if selectedCountry?.dial_code == "+91" {
+                                        phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
+                                    } else {
+                                        phoneNumber = phoneNumber.formatPhoneNumber(with: "(XXX) XXX-XXXX")
+                                    }
+                                }
+                            Text(selectedCountry?.emoji?.decodedUnicode ?? #"\ud83c\uddfa\ud83c\uddf8"#.decodedUnicode)
+                            
+                        }
+                        .onTapGesture {
                             self.movetoselectContrycode = true
                         }
-                    }.frame(maxWidth: 50, maxHeight: 50).padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                    }.frame(maxWidth: 80, maxHeight: 50).padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                    
                     
                     VStack {
-                        
+                        //Vertical line
                     }.frame(maxWidth: 1, maxHeight: 20).background(Color.gray)
                     
-                    TextField("Enter Phone Number", text: $phoneNumber)
+                    TextField("Enter Phone Number*", text: $phoneNumber)
                         .background(Color.clear)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, maxHeight: 50)
                         .padding([.leading, .trailing], 0)
                         .accentColor(.white).padding(.leading, 5)
                         .colorScheme(.dark)
+                        .keyboardType(.numberPad)
+                        .onChange(of: phoneNumber) {
+                            if selectedCountry?.dial_code == "+91" {
+                                phoneNumber = phoneNumber.formatPhoneNumber(with: "XXXXXXXXXX")
+                            } else {
+                                phoneNumber = phoneNumber.formatPhoneNumber(with: "(XXX) XXX-XXXX")
+                            }
+                            
+                        }
                 }
+                
             }
             loginBtn
         }.frame(maxWidth: .infinity, maxHeight: .infinity,
